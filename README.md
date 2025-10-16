@@ -107,5 +107,3 @@ javascript:(function(){
   window.addEventListener('keydown',keyHandler);
 })();
 
-Deseja que eu gere um README.md completo do repositório com título, licença e exemplos de uso?
-
