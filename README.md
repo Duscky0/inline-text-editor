@@ -1,31 +1,42 @@
-🧩 Descrição de Uso
+🧩 Inline Text Editor Bookmarklet
 
-Bookmarklet que transforma o texto selecionado em um campo editável direto na página.
-Permite editar e visualizar a mudança imediatamente, sem recarregar o site.
-
-Passos
-
-1. Selecione qualquer texto na página.
+Transforme qualquer texto selecionado em um campo editável direto na página.
+Permite modificar visualmente o conteúdo sem recarregar o site.
 
 
-2. Clique no bookmarklet salvo.
+---
+
+🚀 Como Usar
+
+1. Copie o código abaixo.
 
 
-3. Uma caixa aparecerá com o texto selecionado.
+2. Crie um novo favorito no navegador.
 
 
-4. Edite o conteúdo e clique Salvar.
+3. Cole o código no campo de URL.
 
 
-5. O texto na página será alterado visualmente.
+4. Em qualquer site, selecione um texto e clique no favorito.
 
 
-6. Recarregar a página reverte as mudanças.
+5. Edite o texto na caixa exibida e clique em Salvar.
+
+
+6. As alterações são apenas visuais (sumirão ao recarregar a página).
 
 
 
-📜 Código do Bookmarklet
 
+---
+
+💻 Bookmarklet
+
+> 🔒 Dica: o código abaixo deve ser copiado inteiro para o campo de URL do favorito.
+
+
+
+```js
 javascript:(function(){
   const sel = window.getSelection();
   if(!sel || sel.rangeCount===0 || sel.isCollapsed){
@@ -89,3 +100,5 @@ javascript:(function(){
   btnSave.onclick = ()=>{ applyEdited(ta.value); modal.remove(); };
   btnCancel.onclick = ()=>{ modal.remove(); };
 })();
+```
+
