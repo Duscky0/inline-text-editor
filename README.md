@@ -1,27 +1,26 @@
 🧩 Descrição de Uso
 
-Bookmarklet que transforma a seleção de texto em um campo editável.
-Você edita e, ao salvar, o texto selecionado é substituído visualmente na página.
-Recarregar a página desfaz a alteração.
+Bookmarklet que transforma o texto selecionado em um campo editável direto na página.
+Permite editar e visualizar a mudança imediatamente, sem recarregar o site.
 
 Passos
 
-1. Selecione um trecho de texto na página.
+1. Selecione qualquer texto na página.
 
 
-2. Clique no favorito (bookmarklet) criado.
+2. Clique no bookmarklet salvo.
 
 
 3. Uma caixa aparecerá com o texto selecionado.
 
 
-4. Edite o texto.
+4. Edite o conteúdo e clique Salvar.
 
 
-5. Clique Salvar para aplicar a alteração visual na página.
+5. O texto na página será alterado visualmente.
 
 
-6. Para reverter, recarregue a página.
+6. Recarregar a página reverte as mudanças.
 
 
 
@@ -82,28 +81,11 @@ javascript:(function(){
       sel.addRange(range);
       range.deleteContents();
       range.insertNode(span);
-      const after = document.createTextNode('');
-      span.after(after);
-      const r2 = document.createRange();
-      r2.setStartAfter(after);
-      r2.collapse(true);
-      sel.removeAllRanges();
-      sel.addRange(r2);
     }catch(e){
-      alert('Erro ao inserir o texto editado: '+e.message);
+      alert('Erro: '+e.message);
     }
   }
 
-  btnSave.onclick = ()=>{
-    const newText = ta.value;
-    applyEdited(newText);
-    modal.remove();
-  };
+  btnSave.onclick = ()=>{ applyEdited(ta.value); modal.remove(); };
   btnCancel.onclick = ()=>{ modal.remove(); };
-
-  function keyHandler(e){
-    if(e.key==='Escape'){ modal.remove(); window.removeEventListener('keydown',keyHandler); }
-  }
-  window.addEventListener('keydown',keyHandler);
 })();
-
